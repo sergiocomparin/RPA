@@ -1,0 +1,81 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Verificar_NIF_CIF" this:Verificar_NIF_CIF.in_str_Documento="A58818501" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_str_Documento" Type="InArgument(x:String)" />
+    <x:Property Name="out_b_CIF" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_b_DNI_NIE" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>546,843</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Verificar_NIF_CIF_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Verificar_NIF_CIF" sap:VirtualizedContainerService.HintSize="526,743" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="    Dim a(22,1) As String 'array del letras de DNI y su correspondiente número&#xD;&#xA;    Dim i, n, l, k As Integer&#xD;&#xA;    Dim s_letra As String&#xD;&#xA;    Dim s_num As Double&#xD;&#xA; &#x9;s_DNI = s_DNI.ToUpper&#xD;&#xA; &#xD;&#xA;&#xD;&#xA;    a(0,0) = &quot;T&quot;&#xD;&#xA;    a(0,1) = &quot;0&quot;&#xD;&#xA;    a(1,0) = &quot;R&quot;&#xD;&#xA;    a(1,1) = &quot;1&quot;&#xD;&#xA;    a(2,0) = &quot;W&quot;&#xD;&#xA;    a(2,1) = &quot;2&quot;&#xD;&#xA;    a(3,0) = &quot;A&quot;&#xD;&#xA;    a(3,1) = &quot;3&quot;&#xD;&#xA;    a(4,0) = &quot;G&quot;&#xD;&#xA;    a(4,1) = &quot;4&quot;&#xD;&#xA;    a(5,0) = &quot;M&quot;&#xD;&#xA;    a(5,1) = &quot;5&quot;&#xD;&#xA;    a(6,0) = &quot;Y&quot;&#xD;&#xA;    a(6,1) = &quot;6&quot;&#xD;&#xA;    a(7,0) = &quot;F&quot;&#xD;&#xA;    a(7,1) = &quot;7&quot;&#xD;&#xA;    a(8,0) = &quot;P&quot;&#xD;&#xA;    a(8,1) = &quot;8&quot;&#xD;&#xA;    a(9,0) = &quot;D&quot;&#xD;&#xA;    a(9,1) = &quot;9&quot;&#xD;&#xA;    a(10,0) = &quot;X&quot;&#xD;&#xA;    a(10,1) = &quot;10&quot;&#xD;&#xA;    a(11,0) = &quot;B&quot;&#xD;&#xA;    a(11,1) = &quot;11&quot;&#xD;&#xA;    a(12,0) = &quot;N&quot;&#xD;&#xA;    a(12,1) = &quot;12&quot;&#xD;&#xA;    a(13,0) = &quot;J&quot;&#xD;&#xA;    a(13,1) = &quot;13&quot;&#xD;&#xA;    a(14,0) = &quot;Z&quot;&#xD;&#xA;    a(14,1) = &quot;14&quot;&#xD;&#xA;    a(15,0) = &quot;S&quot;&#xD;&#xA;    a(15,1) = &quot;15&quot;&#xD;&#xA;    a(16,0) = &quot;Q&quot;&#xD;&#xA;    a(16,1) = &quot;16&quot;&#xD;&#xA;    a(17,0) = &quot;V&quot;&#xD;&#xA;    a(17,1) = &quot;17&quot;&#xD;&#xA;    a(18,0) = &quot;H&quot;&#xD;&#xA;    a(18,1) = &quot;18&quot;&#xD;&#xA;    a(19,0) = &quot;L&quot;&#xD;&#xA;    a(19,1) = &quot;19&quot;&#xD;&#xA;    a(20,0) = &quot;C&quot;&#xD;&#xA;    a(20,1) = &quot;20&quot;&#xD;&#xA;    a(21,0) = &quot;K&quot;&#xD;&#xA;    a(21,1) = &quot;21&quot;&#xD;&#xA;    a(22,0) = &quot;E&quot;&#xD;&#xA;    a(22,1) = &quot;22&quot;&#xD;&#xA;&#xD;&#xA;    check_DNILetter =False&#xD;&#xA;    On Error GoTo fin&#xD;&#xA;    s_letra = Right(s_DNI,1)&#xD;&#xA;    s_DNI = Left(s_DNI,8)&#xD;&#xA;    'Caso de los NIE&#xD;&#xA;    If Left(s_DNI ,1)=&quot;X&quot; Then s_DNI  = Strings.Replace(s_DNI ,&quot;X&quot;,&quot;0&quot;)&#xD;&#xA;    If Left(s_DNI ,1)=&quot;Y&quot; Then s_DNI  = Strings.Replace(s_DNI ,&quot;Y&quot;,&quot;1&quot;)&#xD;&#xA;    If Left(s_DNI ,1)=&quot;Z&quot; Then s_DNI  = Strings.Replace(s_DNI ,&quot;Z&quot;,&quot;2&quot;)&#xD;&#xA;    ' End caso NIE&#xD;&#xA;    If IsNumeric(s_DNI) Then&#xD;&#xA;       s_num = Val(s_DNI)&#xD;&#xA;       If IsNumeric(s_num) Then&#xD;&#xA;         s_num = s_num Mod 23&#xD;&#xA;         If a(CInt(s_num),0) = s_letra Then&#xD;&#xA;             s_DNI = s_DNI + s_letra&#xD;&#xA;            check_DNILetter = True&#xD;&#xA;         End If&#xD;&#xA;         If check_DNILetter=False Then&#xD;&#xA;            'A veces confunde una D o Q por una O, la O no es una letra válida en un DNI&#xD;&#xA;            'si La letra correcta debería ser una D o Q lo transformamos.&#xD;&#xA;            If s_letra=&quot;O&quot; And (s_num=9 Or s_num=16 Or s_num=20) Then&#xD;&#xA;               s_DNI = s_DNI + a(CInt(s_num),0)&#xD;&#xA;               check_DNILetter = True&#xD;&#xA;            End If&#xD;&#xA;            ' a veces lee el caracter ¥ que se transforma en V en Clearespchar, pero a veces es una Y&#xD;&#xA;            If s_letra=&quot;V&quot; And s_num=6 Then&#xD;&#xA;               s_DNI = s_DNI + a(CInt(s_num),0)&#xD;&#xA;               check_DNILetter = True&#xD;&#xA;            End If&#xD;&#xA;         End If&#xD;&#xA;       End If&#xD;&#xA;    End If&#xD;&#xA;  '  Exit Function&#xD;&#xA;fin:&#xD;&#xA;   'If Len(Err.Description)&lt;&gt;&quot;&quot; Then   WriteLogFile(Now() &amp; &quot; [ERROR] --&gt; [&quot; &amp; sNumPerGlobal &amp; &quot;]   [check_DNILetter]: &quot; &amp; Err.Description )&#xD;&#xA;'End Function&#xD;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="484,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="s_DNI">[in_str_Documento]</InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="check_DNILetter">[out_b_DNI_NIE]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <If Condition="[out_b_DNI_NIE]" sap:VirtualizedContainerService.HintSize="484,314" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Else>
+        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim sVerDNI As String&#xD;&#xA;Dim nNumDNI As Long&#xD;&#xA;Dim sLetDNI As String&#xD;&#xA;Dim nError As String&#xD;&#xA;Dim CalcVerDNI As String &#xD;&#xA;&#xD;&#xA;Dim CIF As String = aaaa&#xD;&#xA;Dim numero As String&#xD;&#xA;For Each item As Char In CIF.ToCharArray&#xD;&#xA;&#x9;If Char.IsNumber(item)&#xD;&#xA;&#x9;&#x9;numero = numero+&#x9;item&#xD;&#xA;&#x9;Else &#xD;&#xA;&#x9;&#x9;sLetDNI = item&#xD;&#xA;&#x9;End If&#x9;&#xD;&#xA;Next&#x9;&#xD;&#xA;nNumDNI = Convert.ToInt64(numero.Substring(0,numero.Length-1))&#xD;&#xA;sVerDNI = numero.Substring(numero.Length-1, 1)&#xD;&#xA;&#xD;&#xA;Console.WriteLine(&quot;Entrada &quot; + aaaa)&#xD;&#xA;Console.WriteLine(&quot;sLetDNI: &quot; + sLetDNI)&#xD;&#xA;Console.WriteLine(&quot;nNumDNI: &quot; + nNumDNI.ToString)&#xD;&#xA;Console.WriteLine(&quot;sVerDNI: &quot; + sVerDNI)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Dim nSumaPares As Integer&#xD;&#xA;Dim nSumaImpares As Integer&#xD;&#xA;Dim nSumaPos As Integer&#xD;&#xA;Dim nSumaTotal As Integer&#xD;&#xA;Dim sNumDNI As String = CStr(nNumDNI)&#xD;&#xA;Dim nPos As Integer = 1&#xD;&#xA; &#xD;&#xA;        If String.IsNullOrEmpty(sNumDNI) Then&#xD;&#xA;            nError = &quot;CIF Vacio&quot;&#xD;&#xA;            GoTo FIN: &#xD;&#xA;        End If&#xD;&#xA; &#xD;&#xA;        If sNumDNI.Length &gt; 7 Then&#xD;&#xA;            nError = &quot;No cuadra la longitud&quot;&#xD;&#xA;            GoTo FIN: &#xD;&#xA;        End If&#xD;&#xA; &#xD;&#xA;        If sNumDNI.Length &lt; 7 Then&#xD;&#xA;            sNumDNI = Mid(CStr(10000000 + nNumDNI), 2, 7)&#xD;&#xA;        End If&#xD;&#xA; &#xD;&#xA;        nSumaPares = CInt(Mid(sNumDNI, 2, 1)) + CInt(Mid(sNumDNI, 4, 1)) + CInt(Mid(sNumDNI, 6, 1))&#xD;&#xA; &#xD;&#xA;        Do While nPos &lt;&gt; 9&#xD;&#xA;            nSumaPos = (CInt(Mid(sNumDNI, nPos, 1)) * 2)&#xD;&#xA; &#xD;&#xA;            If Len(CStr(nSumaPos)) = 2 Then&#xD;&#xA;                nSumaImpares += CInt(Mid(CStr(nSumaPos), 1, 1)) + CInt(Mid(CStr(nSumaPos), 2, 1))&#xD;&#xA;            Else&#xD;&#xA;                nSumaImpares += nSumaPos&#xD;&#xA;            End If&#xD;&#xA; &#xD;&#xA;            nPos += 2&#xD;&#xA;        Loop&#xD;&#xA; &#xD;&#xA;        nSumaTotal = nSumaPares + nSumaImpares&#xD;&#xA;        nSumaTotal = CInt(10 - CDbl(Right(CStr(nSumaTotal), 1)))&#xD;&#xA;&#xD;&#xA;        If IsNumeric(sVerDNI) Then&#xD;&#xA;            If nSumaTotal = 10 Then&#xD;&#xA;                nSumaTotal = 0&#xD;&#xA;            End If&#xD;&#xA; &#xD;&#xA;            CalcVerDNI = CStr(nSumaTotal)&#xD;&#xA;&#x9;&#x9;&#x9;   console.WriteLine(&quot;CalcVerDNI  &quot; +CalcVerDNI)&#xD;&#xA; &#xD;&#xA;            If CDbl(sVerDNI) &lt;&gt; nSumaTotal Then&#xD;&#xA;                nError = &quot;No cuadra la suma total&quot;&#xD;&#xA;                GoTo FIN: &#xD;&#xA;            End If&#xD;&#xA;        Else&#xD;&#xA;            If nSumaTotal = 0 Then&#xD;&#xA;                nSumaTotal = 1&#xD;&#xA;            End If&#xD;&#xA; &#xD;&#xA;            Dim cVerdni As New Collection&#xD;&#xA; &#xD;&#xA;            cVerdni.Add(&quot;A&quot;)&#xD;&#xA;            cVerdni.Add(&quot;B&quot;)&#xD;&#xA;            cVerdni.Add(&quot;C&quot;)&#xD;&#xA;            cVerdni.Add(&quot;D&quot;)&#xD;&#xA;            cVerdni.Add(&quot;E&quot;)&#xD;&#xA;            cVerdni.Add(&quot;F&quot;)&#xD;&#xA;            cVerdni.Add(&quot;G&quot;)&#xD;&#xA;            cVerdni.Add(&quot;H&quot;)&#xD;&#xA;            cVerdni.Add(&quot;I&quot;)&#xD;&#xA;            cVerdni.Add(&quot;J&quot;)&#xD;&#xA; &#xD;&#xA;            CalcVerDNI = CStr(cVerdni(nSumaTotal))&#xD;&#xA; console.WriteLine(&quot;_____&quot; +CStr(cVerdni(nSumaTotal)))&#xD;&#xA;  console.WriteLine(&quot;_____&quot; +sVerDNI)&#xD;&#xA;            If CStr(cVerdni(nSumaTotal)) &lt;&gt; sVerDNI Then&#xD;&#xA;                nError = &quot;No cuadra la letra con el digito de control&quot;&#xD;&#xA;                GoTo FIN: &#xD;&#xA;            End If&#xD;&#xA;        End If&#xD;&#xA;&#x9;&#x9;&#xD;&#xA; &#xD;&#xA;        nError = String.Empty&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;FIN: &#xD;&#xA;&#x9;&#x9;Console.WriteLine(&quot;Error: &quot; + nError.ToString)" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+          <ui:InvokeCode.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="aaaa">[in_str_Documento]</InArgument>
+          </ui:InvokeCode.Arguments>
+        </ui:InvokeCode>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_str_Documento + &quot; ¿Es un DNI? &quot; + out_b_DNI_NIE.ToString]" />
+  </Sequence>
+</Activity>
